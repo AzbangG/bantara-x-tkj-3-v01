@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detail Abdul Rohim</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+
+        .detail {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            max-width: 500px;
+            margin: auto;
+            box-shadow: 0 5px 10px rgba(0,0,0,0.1);
+            animation: zoomIn 0.5s ease-out;
+        }
+
+        @keyframes zoomIn {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        .student-photo {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 15px;
+            border: 3px solid #eee;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+
+        a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #007bff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: #0056b3;
+        }
+
+        .detail h2 {
+            text-align: center;
+            animation: fadeInDown 0.6s ease-out;
+        }
+
+        .detail p {
+            animation: fadeInUp 0.7s ease-out;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .detail p:nth-child(3) { animation-delay: 0.1s; }
+        .detail p:nth-child(4) { animation-delay: 0.15s; }
+        .detail p:nth-child(5) { animation-delay: 0.2s; }
+        .detail p:nth-child(6) { animation-delay: 0.25s; }
+        .detail p:nth-child(7) { animation-delay: 0.3s; }
+        .detail p:nth-child(8) { animation-delay: 0.35s; }
+        .detail p:nth-child(9) { animation-delay: 0.4s; }
+
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Edit Button Styles */
+        .btn {
+            margin-top: 15px;
+            padding: 10px;
+            width: 100%;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+        }
+
+        .edit {
+            background: #28a745;
+            color: white;
+            animation: fadeInUp 0.7s ease-out 0.45s;
+            opacity: 0;
+            animation-fill-mode: forwards;
+        }
+
+        .edit:hover {
+            background: #218838;
+            transform: translateY(-2px);
+        }
+
+        .save {
+            background: #007bff;
+            color: white;
+            display: none;
+        }
+
+        .save:hover {
+            background: #0056b3;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-top: 5px;
+            border-radius: 6px;
+            border: 1px solid #ccc;
+            display: none;
+            box-sizing: border-box;
+        }
+
+        .detail p span {
+            display: inline;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .detail {
+                padding: 15px;
+            }
+
+            .student-photo {
+                width: 100px;
+                height: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="detail">
+        <img id="photo" class="student-photo" src="Images/Siswa/Abdul Rohim.jpg" alt="Abdul Rohim">
+
+        <h2>
+            <span id="namaText">Abdul Rohim</span>
+            <input id="namaInput" value="Abdul Rohim">
+        </h2>
+
+        <p>
+            <b>Absen:</b> 
+            <span id="absenText">1</span>
+            <input id="absenInput" value="1">
+        </p>
+
+        <p>
+            <b>Umur:</b> 
+            <span id="umurText">-- Tahun</span>
+            <input id="umurInput" value="-- Tahun">
+        </p>
+
+        <p>
+            <b>Kelas:</b> 
+            <span id="kelasText">X TKJ 3</span>
+            <input id="kelasInput" value="X TKJ 3">
+        </p>
+
+        <p>
+            <b>Alamat:</b> 
+            <span id="alamatText">-</span>
+            <input id="alamatInput" value="-">
+        </p>
+
+        <p>
+            <b>Hobi:</b> 
+            <span id="hobiText">-</span>
+            <input id="hobiInput" value="-">
+        </p>
+
+        <p>
+            <b>Cita-cita:</b> 
+            <span id="citaText">-</span>
+            <input id="citaInput" value="-">
+        </p>
+
+        <p>
+            <b>Motto:</b> 
+            <span id="mottoText">-</span>
+            <input id="mottoInput" value="-">
+        </p>
+
+        <button id="editBtn" class="btn edit">✏️ Edit</button>
+        <button id="saveBtn" class="btn save">💾 Simpan</button>
+
+        <a href="index.html">← Kembali ke daftar siswa</a>
+    </div>
+
+    <script>
+        // ===== CEK LOGIN =====
+        const isLogin = sessionStorage.getItem('isLoggedIn') === 'true';
+        const username = sessionStorage.getItem('username');
+        const isAdmin = username === 'admin' || username === 'guru';
+        
+        const editBtn = document.getElementById("editBtn");
+        const saveBtn = document.getElementById("saveBtn");
+
+        if (!isAdmin) {
+            editBtn.style.display = "none";
+        }
+
+        // ===== FOTO OTOMATIS =====
+        const photo = document.getElementById("photo");
+        
+        photo.onerror = () => {
+            photo.src = "Images/Siswa/default.jpg";
+        };
+
+        // ===== EDIT MODE =====
+        const inputs = document.querySelectorAll("input");
+        const spans = document.querySelectorAll("span");
+
+        editBtn.onclick = () => {
+            inputs.forEach(i => i.style.display = "block");
+            spans.forEach(s => s.style.display = "none");
+            editBtn.style.display = "none";
+            saveBtn.style.display = "block";
+        };
+
+        saveBtn.onclick = () => {
+            namaText.innerText = namaInput.value;
+            absenText.innerText = absenInput.value;
+            umurText.innerText = umurInput.value;
+            kelasText.innerText = kelasInput.value;
+            alamatText.innerText = alamatInput.value;
+            hobiText.innerText = hobiInput.value;
+            citaText.innerText = citaInput.value;
+            mottoText.innerText = mottoInput.value;
+
+            inputs.forEach(i => i.style.display = "none");
+            spans.forEach(s => s.style.display = "inline");
+
+            editBtn.style.display = "block";
+            saveBtn.style.display = "none";
+
+            alert("Data disimpan (lokal)");
+        };
+    </script>
+
+</body>
+</html>
