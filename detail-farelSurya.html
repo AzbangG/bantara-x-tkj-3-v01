@@ -171,6 +171,177 @@
                 height: 100px;
             }
         }
+
+        /* ========== TOMBOL SOSIAL MEDIA ========== */
+        .social-media {
+            margin-top: 20px;
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+        }
+
+        .social-btn img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        /* TikTok - Hitam */
+        .tiktok {
+            background: #000000;
+        }
+
+        .tiktok:hover {
+            background: #333333;
+        }
+
+        /* Instagram - Gradient */
+        .instagram {
+            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .instagram:hover {
+            background: linear-gradient(45deg, #d87b2a 0%, #d15a2f 25%, #c51d36 50%, #b51a59 75%, #a10f75 100%);
+        }
+
+        /* YouTube - Merah */
+        .youtube {
+            background: #FF0000;
+        }
+
+        .youtube:hover {
+            background: #CC0000;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .detail {
+                padding: 15px;
+            }
+
+            .student-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .social-media {
+                flex-direction: column;
+            }
+
+            .social-btn {
+                width: 100%;
+                justify-content: center;
+            }
+        }
+
+        /* ========== BACKGROUND MUSIC PLAYER ========== */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .music-icon {
+            font-size: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .music-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .music-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .music-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px;
+            transition: transform 0.2s;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .volume-control {
+            width: 60px;
+        }
+
+        @media (max-width: 480px) {
+            .music-player {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                padding: 10px;
+            }
+
+            .music-title {
+                font-size: 11px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -225,10 +396,39 @@
             <input id="mottoInput" value="Jangan biarkan ketakutan menghalangi impianmu, hadapi saja">
         </p>
 
+        <!-- ========== TOMBOL SOSIAL MEDIA ========== -->
+        <!-- GANTI LINK DI BAWAH INI SESUAI DENGAN AKUN SISWA -->
+        <div class="social-media">
+            <a href="https://www.tiktok.com/@farrelwg_" target="_blank" class="social-btn tiktok">
+                <img src="Images/Icon/TikTok.png" alt="TikTok"> TikTok
+            </a>
+            <a href="https://www.instagram.com/farrelwg_" target="_blank" class="social-btn instagram">
+                <img src="Images/Icon/Instagram.png" alt="Instagram"> Instagram
+            </a>
+        </div>
+        <!-- ========== AKHIR TOMBOL SOSIAL MEDIA ========== -->
+
         <button id="editBtn" class="btn edit">✏️ Edit</button>
         <button id="saveBtn" class="btn save">💾 Simpan</button>
 
         <a href="index.html">← Kembali ke daftar siswa</a>
+    </div>
+
+     <!-- ========== BACKGROUND MUSIC PLAYER ========== -->
+    <audio id="bgMusic" loop>
+        <source src="Music/Farrel Surya Ramadhan.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung audio.
+    </audio>
+
+    <div class="music-player" id="musicPlayer">
+        <div class="music-icon">🎵</div>
+        <div class="music-info">
+            <div class="music-title">Background Music</div>
+            <div class="music-controls">
+                <button class="music-btn" id="playPauseBtn">⏸️</button>
+                <input type="range" class="volume-control" id="volumeControl" min="0" max="100" value="30">
+            </div>
+        </div>
     </div>
 
     <script>
@@ -280,6 +480,38 @@
 
             alert("Data disimpan (lokal)");
         };
+
+        // ===== BACKGROUND MUSIC =====
+        const bgMusic = document.getElementById("bgMusic");
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const volumeControl = document.getElementById("volumeControl");
+
+        // Set volume awal (30% agar tidak terlalu besar)
+        bgMusic.volume = 0.3;
+
+        // Auto play musik saat halaman dibuka
+        window.addEventListener('load', () => {
+            bgMusic.play().catch(err => {
+                console.log("Auto-play dicegah browser. User harus klik untuk play.");
+                playPauseBtn.textContent = "▶️";
+            });
+        });
+
+        // Toggle play/pause
+        playPauseBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                playPauseBtn.textContent = "⏸️";
+            } else {
+                bgMusic.pause();
+                playPauseBtn.textContent = "▶️";
+            }
+        });
+
+        // Volume control
+        volumeControl.addEventListener('input', (e) => {
+            bgMusic.volume = e.target.value / 100;
+        });
     </script>
 
 </body>
