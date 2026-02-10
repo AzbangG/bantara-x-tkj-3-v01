@@ -176,87 +176,72 @@
         .social-media {
             margin-top: 20px;
             display: flex;
-            gap: 10px;
+            flex-direction: row;
+            gap: 8px;
             justify-content: center;
-            flex-wrap: wrap;
         }
 
         .social-btn {
-            padding: 10px 20px;
+            flex: 1;
+            max-width: 150px;
+            padding: 10px 12px;
             border: none;
-            border-radius: 8px;
-            font-weight: bold;
+            border-radius: 10px;
+            font-weight: 600;
             color: white;
             text-decoration: none;
             cursor: pointer;
             transition: all 0.3s ease;
-            display: inline-flex;
+            display: flex;
+            flex-direction: column;
             align-items: center;
-            gap: 8px;
-            font-size: 14px;
+            justify-content: center;
+            gap: 6px;
+            font-size: 11px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
         }
 
         .social-btn img {
             width: 24px;
             height: 24px;
             object-fit: contain;
+            flex-shrink: 0;
         }
 
         .social-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+        }
+
+        .social-btn:active {
+            transform: translateY(0px);
         }
 
         /* TikTok - Hitam */
         .tiktok {
-            background: #000000;
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
         }
 
         .tiktok:hover {
-            background: #333333;
+            background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
         }
 
         /* Instagram - Gradient */
         .instagram {
-            background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
         }
 
         .instagram:hover {
-            background: linear-gradient(45deg, #d87b2a 0%, #d15a2f 25%, #c51d36 50%, #b51a59 75%, #a10f75 100%);
+            background: linear-gradient(135deg, #d87b2a 0%, #d15a2f 25%, #c51d36 50%, #b51a59 75%, #a10f75 100%);
         }
 
         /* YouTube - Merah */
         .youtube {
-            background: #FF0000;
+            background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
         }
 
         .youtube:hover {
-            background: #CC0000;
-        }
-
-        /* Mobile Responsive */
-        @media (max-width: 480px) {
-            body {
-                padding: 10px;
-            }
-
-            .detail {
-                padding: 15px;
-            }
-
-            .student-photo {
-                width: 100px;
-                height: 100px;
-            }
-
-            .social-media {
-                flex-direction: column;
-            }
-
-            .social-btn {
-                width: 100%;
-                justify-content: center;
-            }
+            background: linear-gradient(135deg, #CC0000 0%, #990000 100%);
         }
 
         /* ========== BACKGROUND MUSIC PLAYER ========== */
@@ -516,3 +501,4 @@
 
 </body>
 </html>
+
