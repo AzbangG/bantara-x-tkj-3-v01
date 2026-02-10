@@ -232,8 +232,7 @@
         .music-player {
             position: fixed;
             bottom: 20px;
-            left: 50%;
-            transform: translateX(-50%);
+            right: 20px;
             background: rgba(255, 255, 255, 0.95);
             padding: 12px 16px;
             border-radius: 12px;
@@ -243,24 +242,22 @@
             gap: 12px;
             z-index: 1000;
             animation: slideInUp 0.5s ease-out;
-            max-width: 90%;
         }
 
         @keyframes slideInUp {
             from {
                 opacity: 0;
-                transform: translateX(-50%) translateY(50px);
+                transform: translateY(50px);
             }
             to {
                 opacity: 1;
-                transform: translateX(-50%) translateY(0);
+                transform: translateY(0);
             }
         }
 
         .music-icon {
             font-size: 24px;
             animation: pulse 2s infinite;
-            flex-shrink: 0;
         }
 
         @keyframes pulse {
@@ -278,23 +275,20 @@
             font-size: 12px;
             font-weight: bold;
             color: #333;
-            white-space: nowrap;
         }
 
         .music-controls {
             display: flex;
             gap: 8px;
-            align-items: center;
         }
 
         .music-btn {
             background: none;
             border: none;
-            font-size: 18px;
+            font-size: 16px;
             cursor: pointer;
             padding: 4px;
             transition: transform 0.2s;
-            flex-shrink: 0;
         }
 
         .music-btn:hover {
@@ -302,65 +296,19 @@
         }
 
         .volume-control {
-            width: 70px;
+            width: 60px;
         }
 
-        /* Tablet (768px - 1024px) */
-        @media (max-width: 1024px) {
-            .social-btn {
-                padding: 9px 10px;
-                font-size: 10px;
-                max-width: 130px;
-            }
-
-            .social-btn img {
-                width: 22px;
-                height: 22px;
-            }
-        }
-
-        /* Mobile (481px - 768px) */
-        @media (max-width: 768px) {
-            body {
-                padding: 15px;
-            }
-
-            .detail {
-                padding: 18px;
-            }
-
-            .student-photo {
-                width: 110px;
-                height: 110px;
-            }
-
-            .social-media {
-                gap: 6px;
-            }
-
-            .social-btn {
-                padding: 8px 8px;
-                font-size: 10px;
-                gap: 4px;
-                max-width: 120px;
-            }
-
-            .social-btn img {
-                width: 20px;
-                height: 20px;
-            }
-
+        @media (max-width: 480px) {
             .music-player {
-                bottom: 15px;
-                padding: 10px 14px;
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                padding: 10px;
             }
 
-            .music-icon {
-                font-size: 22px;
-            }
-
-            .volume-control {
-                width: 60px;
+            .music-title {
+                font-size: 11px;
             }
         }
 
