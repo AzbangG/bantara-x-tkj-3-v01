@@ -171,6 +171,204 @@
                 height: 100px;
             }
         }
+
+        /* ========== BACKGROUND MUSIC PLAYER ========== */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.95);
+            padding: 12px 16px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            z-index: 1000;
+            animation: slideInUp 0.5s ease-out;
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .music-icon {
+            font-size: 24px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        .music-info {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+        }
+
+        .music-title {
+            font-size: 12px;
+            font-weight: bold;
+            color: #333;
+        }
+
+        .music-controls {
+            display: flex;
+            gap: 8px;
+        }
+
+        .music-btn {
+            background: none;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 4px;
+            transition: transform 0.2s;
+        }
+
+        .music-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .volume-control {
+            width: 60px;
+        }
+
+        @media (max-width: 480px) {
+            .music-player {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                padding: 10px;
+            }
+
+            .music-title {
+                font-size: 11px;
+            }
+        }
+
+        /* Small Mobile (max-width: 480px) */
+        @media (max-width: 480px) {
+            body {
+                padding: 10px;
+            }
+
+            .detail {
+                padding: 15px;
+            }
+
+            .student-photo {
+                width: 100px;
+                height: 100px;
+            }
+
+            .social-media {
+                gap: 5px;
+            }
+
+            .social-btn {
+                padding: 7px 6px;
+                font-size: 9px;
+                gap: 3px;
+                border-radius: 8px;
+            }
+
+            .social-btn img {
+                width: 18px;
+                height: 18px;
+            }
+
+            .music-player {
+                bottom: 10px;
+                padding: 8px 12px;
+            }
+
+            .music-icon {
+                font-size: 20px;
+            }
+
+            .music-title {
+                font-size: 11px;
+            }
+
+            .music-btn {
+                font-size: 16px;
+            }
+
+            .volume-control {
+                width: 50px;
+            }
+        }
+
+        /* Extra Small Mobile (max-width: 375px) */
+        @media (max-width: 375px) {
+            .detail {
+                padding: 12px;
+            }
+
+            .student-photo {
+                width: 90px;
+                height: 90px;
+            }
+
+            .social-media {
+                gap: 4px;
+            }
+
+            .social-btn {
+                padding: 6px 4px;
+                font-size: 8px;
+                gap: 2px;
+            }
+
+            .social-btn img {
+                width: 16px;
+                height: 16px;
+            }
+
+            .music-player {
+                padding: 8px 10px;
+                gap: 8px;
+            }
+
+            .music-icon {
+                font-size: 18px;
+            }
+
+            .music-title {
+                font-size: 10px;
+            }
+
+            .volume-control {
+                width: 45px;
+            }
+        }
+
+        /* Very Small Mobile (max-width: 320px) */
+        @media (max-width: 320px) {
+            .social-media {
+                gap: 3px;
+            }
+
+            .social-btn {
+                padding: 5px 3px;
+                font-size: 7px;
+            }
+
+            .social-btn img {
+                width: 14px;
+                height: 14px;
+            }
+        }
     </style>
 </head>
 <body>
@@ -231,6 +429,23 @@
         <a href="index.html">← Kembali ke daftar siswa</a>
     </div>
 
+    <!-- ========== BACKGROUND MUSIC PLAYER ========== -->
+    <audio id="bgMusic" loop>
+        <source src="Music/Bayu Lutfiadi.mp3" type="audio/mpeg">
+        Browser Anda tidak mendukung audio.
+    </audio>
+
+    <div class="music-player" id="musicPlayer">
+        <div class="music-icon">🎵</div>
+        <div class="music-info">
+            <div class="music-title">Background Music</div>
+            <div class="music-controls">
+                <button class="music-btn" id="playPauseBtn">⏸️</button>
+                <input type="range" class="volume-control" id="volumeControl" min="0" max="100" value="30">
+            </div>
+        </div>
+    </div>
+
     <script>
         // ===== CEK LOGIN =====
         const isLogin = sessionStorage.getItem('isLoggedIn') === 'true';
@@ -280,7 +495,40 @@
 
             alert("Data disimpan (lokal)");
         };
+
+        // ===== BACKGROUND MUSIC =====
+        const bgMusic = document.getElementById("bgMusic");
+        const playPauseBtn = document.getElementById("playPauseBtn");
+        const volumeControl = document.getElementById("volumeControl");
+
+        // Set volume awal (30% agar tidak terlalu besar)
+        bgMusic.volume = 0.3;
+
+        // Auto play musik saat halaman dibuka
+        window.addEventListener('load', () => {
+            bgMusic.play().catch(err => {
+                console.log("Auto-play dicegah browser. User harus klik untuk play.");
+                playPauseBtn.textContent = "▶️";
+            });
+        });
+
+        // Toggle play/pause
+        playPauseBtn.addEventListener('click', () => {
+            if (bgMusic.paused) {
+                bgMusic.play();
+                playPauseBtn.textContent = "⏸️";
+            } else {
+                bgMusic.pause();
+                playPauseBtn.textContent = "▶️";
+            }
+        });
+
+        // Volume control
+        volumeControl.addEventListener('input', (e) => {
+            bgMusic.volume = e.target.value / 100;
+        });
     </script>
 
 </body>
 </html>
+
