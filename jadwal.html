@@ -83,6 +83,33 @@
             background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
         }
 
+        /* Today Badge for Day Button */
+        .day-btn.today {
+            position: relative;
+        }
+
+        .day-btn.today::after {
+            content: '● Hari Ini';
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            font-weight: 600;
+            box-shadow: 0 2px 6px rgba(16, 185, 129, 0.4);
+            animation: pulse 2s ease-in-out infinite;
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.85; transform: scale(0.98); }
+        }
+
         /* Schedule Cards */
         .schedule-content {
             display: none;
@@ -230,6 +257,13 @@
                 font-size: 13px;
             }
 
+            .day-btn.today::after {
+                font-size: 0.65em;
+                padding: 3px 6px;
+                top: -8px;
+                right: -8px;
+            }
+
             .schedule-card {
                 padding: 16px;
             }
@@ -247,6 +281,13 @@
             .day-btn {
                 padding: 8px 14px;
                 font-size: 12px;
+            }
+
+            .day-btn.today::after {
+                font-size: 0.6em;
+                padding: 2px 5px;
+                top: -7px;
+                right: -7px;
             }
 
             .schedule-time {
@@ -757,6 +798,14 @@
             const days = ['minggu', 'senin', 'selasa', 'rabu', 'kamis', 'jumat', 'sabtu'];
             const today = new Date().getDay();
             const currentDay = days[today];
+            
+            // Tambahkan badge "Hari Ini" ke tombol hari saat ini
+            if (currentDay !== 'minggu') {
+                const todayButton = document.querySelector(`.day-btn[data-day="${currentDay}"]`);
+                if (todayButton) {
+                    todayButton.classList.add('today');
+                }
+            }
             
             // Jika hari Minggu, default ke Senin
             if (currentDay === 'minggu') {
