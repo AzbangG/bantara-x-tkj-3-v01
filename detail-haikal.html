@@ -172,6 +172,78 @@
             }
         }
 
+        /* ========== TOMBOL SOSIAL MEDIA ========== */
+        .social-media {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .social-btn {
+            flex: 1;
+            max-width: 150px;
+            padding: 10px 12px;
+            border: none;
+            border-radius: 10px;
+            font-weight: 600;
+            color: white;
+            text-decoration: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            font-size: 11px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+        }
+
+        .social-btn img {
+            width: 24px;
+            height: 24px;
+            object-fit: contain;
+            flex-shrink: 0;
+        }
+
+        .social-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.25);
+        }
+
+        .social-btn:active {
+            transform: translateY(0px);
+        }
+
+        /* TikTok - Hitam */
+        .tiktok {
+            background: linear-gradient(135deg, #000000 0%, #333333 100%);
+        }
+
+        .tiktok:hover {
+            background: linear-gradient(135deg, #1a1a1a 0%, #404040 100%);
+        }
+
+        /* Instagram - Gradient */
+        .instagram {
+            background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+        }
+
+        .instagram:hover {
+            background: linear-gradient(135deg, #d87b2a 0%, #d15a2f 25%, #c51d36 50%, #b51a59 75%, #a10f75 100%);
+        }
+
+        /* YouTube - Merah */
+        .youtube {
+            background: linear-gradient(135deg, #FF0000 0%, #CC0000 100%);
+        }
+
+        .youtube:hover {
+            background: linear-gradient(135deg, #CC0000 0%, #990000 100%);
+        }
+
         /* ========== BACKGROUND MUSIC PLAYER ========== */
         .music-player {
             position: fixed;
@@ -417,5 +489,6 @@
 
 </body>
 </html>
+
 
 
