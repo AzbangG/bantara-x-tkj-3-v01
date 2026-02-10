@@ -859,6 +859,33 @@ p {
     font-size: 20px;
     margin-bottom: 3px;
     transition: transform 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-icon img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+    filter: grayscale(100%) brightness(0.5);
+    transition: filter 0.2s ease, transform 0.2s ease;
+}
+
+.dark-mode .nav-icon img {
+    filter: grayscale(100%) brightness(2);
+}
+
+.nav-item.active .nav-icon img {
+    filter: grayscale(0%) brightness(1);
+}
+
+.dark-mode .nav-item.active .nav-icon img {
+    filter: grayscale(0%) brightness(1.2);
+}
+
+.nav-item:hover .nav-icon img {
+    filter: grayscale(0%) brightness(1.1);
 }
 
 .nav-item.active .nav-icon {
