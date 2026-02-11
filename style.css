@@ -678,6 +678,30 @@ p {
     }
 }
 
+/* Small Mobile Devices (max-width: 480px) */
+@media (max-width: 480px) {
+    .bottom-nav {
+        padding: 6px 3px 8px 3px;
+        gap: 2px;
+    }
+
+    .nav-item {
+        padding: 6px 4px;
+        min-width: 52px;
+        max-width: 70px;
+    }
+
+    .nav-icon img {
+        width: 20px;
+        height: 20px;
+    }
+
+    .nav-label {
+        font-size: 9px;
+        letter-spacing: 0.2px;
+    }
+}
+
 /* Extra Small Mobile Devices (320px - 375px) */
 @media (max-width: 375px) {
     .top-nav {
@@ -777,12 +801,13 @@ p {
     }
 
     .bottom-nav {
-        padding: 6px 0;
+        padding: 5px 2px 7px 2px;
     }
 
     .nav-item {
-        padding: 5px 10px;
-        min-width: 50px;
+        padding: 5px 3px;
+        min-width: 48px;
+        max-width: 65px;
     }
 
     .nav-icon {
@@ -796,6 +821,7 @@ p {
 
     .nav-label {
         font-size: 8px;
+        letter-spacing: 0.1px;
     }
 }
 
@@ -809,10 +835,11 @@ p {
     backdrop-filter: blur(10px);
     -webkit-backdrop-filter: blur(10px);
     border-top: 1px solid var(--nav-border);
-    padding: 6px 0;
+    padding: 8px 4px 10px 4px;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
+    gap: 2px;
     z-index: 999;
     box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
 }
@@ -824,13 +851,13 @@ p {
     justify-content: center;
     text-decoration: none;
     color: var(--text-color);
-    padding: 6px 12px;
-    border-radius: 10px;
-    transition: background 0.2s ease, transform 0.2s ease;
+    padding: 8px 6px;
+    border-radius: 12px;
+    transition: all 0.2s ease;
     position: relative;
-    min-width: 60px;
+    min-width: 56px;
     flex: 1;
-    max-width: 100px;
+    max-width: 80px;
 }
 
 .nav-item::before {
@@ -917,6 +944,11 @@ p {
     font-weight: 600;
     letter-spacing: 0.3px;
     transition: font-weight 0.2s ease;
+    margin-top: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 100%;
 }
 
 .nav-item:hover .nav-label {
