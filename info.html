@@ -307,15 +307,24 @@
     <div class="bg-slideshow" id="bgSlideshow"></div>
 
     <!-- Top Navigation Bar -->
+    <!-- Top Navigation Bar -->
     <nav class="top-nav">
-        <button id="theme-toggle" class="theme-toggle">
-            <div class="toggle-track">
-                <div class="toggle-thumb">
-                    <span class="icon sun">☀️</span>
-                    <span class="icon moon">🌙</span>
-                </div>
+        <div class="nav-left">
+            <div class="date-time-display" id="dateTimeDisplay">
+                <div class="current-date" id="currentDate">Loading...</div>
+                <div class="current-time" id="currentTime">Loading...</div>
             </div>
-        </button>
+        </div>
+        <div class="nav-right">
+            <button id="theme-toggle" class="theme-toggle">
+                <div class="toggle-track">
+                    <div class="toggle-thumb">
+                        <span class="icon sun">☀️</span>
+                        <span class="icon moon">🌙</span>
+                    </div>
+                </div>
+            </button>
+        </div>
     </nav>
 
     <div class="header">
@@ -415,11 +424,11 @@
             <div class="social-links">
                 <a href="https://www.instagram.com/account_x_tkj_3" target="_blank" class="social-btn instagram-btn">
                     <img src="Images/Icon/Instagram.png" alt="Instagram" class="social-icon">
-                    <span>X TKJ 3 Bantara - account_x_tkj_3</span>
+                    <span>Instagram X-TKJ-3 Bantara</span>
                 </a>
                 <a href="https://www.instagram.com/smk.bantara" target="_blank" class="social-btn instagram-btn">
                     <img src="Images/Icon/Instagram.png" alt="Instagram" class="social-icon">
-                    <span>SMK Bantara - smk.bantara</span>
+                    <span>Instagram SMK Bantara</span>
                 </a>
             </div>
         </div>
@@ -447,6 +456,30 @@
                 if (index === 0) slide.classList.add('active');
                 bgSlideshow.appendChild(slide);
             });
+
+            // ===== DATE TIME UPDATE =====
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                };
+                const dateString = now.toLocaleDateString('id-ID', options);
+                const timeString = now.toLocaleTimeString('id-ID', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                
+                document.getElementById('currentDate').textContent = dateString;
+                document.getElementById('currentTime').textContent = timeString;
+            }
+            
+            // Update immediately and then every second
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
             
             let currentSlide = 0;
             const slides = document.querySelectorAll('.bg-slide');
@@ -472,6 +505,30 @@
                 );
             });
 
+            // ===== DATE TIME UPDATE =====
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                };
+                const dateString = now.toLocaleDateString('id-ID', options);
+                const timeString = now.toLocaleTimeString('id-ID', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                
+                document.getElementById('currentDate').textContent = dateString;
+                document.getElementById('currentTime').textContent = timeString;
+            }
+            
+            // Update immediately and then every second
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+
             // Nav item click handler
             const navItems = document.querySelectorAll('.nav-item');
             navItems.forEach(item => {
@@ -484,9 +541,105 @@
                         navItems.forEach(nav => nav.classList.remove('active'));
                         item.classList.add('active');
                     });
+
+            // ===== DATE TIME UPDATE =====
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                };
+                const dateString = now.toLocaleDateString('id-ID', options);
+                const timeString = now.toLocaleTimeString('id-ID', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    second: '2-digit'
                 });
+                
+                document.getElementById('currentDate').textContent = dateString;
+                document.getElementById('currentTime').textContent = timeString;
+            }
+            
+            // Update immediately and then every second
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
+                });
+
+            // ===== DATE TIME UPDATE =====
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                };
+                const dateString = now.toLocaleDateString('id-ID', options);
+                const timeString = now.toLocaleTimeString('id-ID', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                
+                document.getElementById('currentDate').textContent = dateString;
+                document.getElementById('currentTime').textContent = timeString;
+            }
+            
+            // Update immediately and then every second
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
             });
+
+            // ===== DATE TIME UPDATE =====
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                };
+                const dateString = now.toLocaleDateString('id-ID', options);
+                const timeString = now.toLocaleTimeString('id-ID', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                
+                document.getElementById('currentDate').textContent = dateString;
+                document.getElementById('currentTime').textContent = timeString;
+            }
+            
+            // Update immediately and then every second
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
         });
+
+            // ===== DATE TIME UPDATE =====
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                };
+                const dateString = now.toLocaleDateString('id-ID', options);
+                const timeString = now.toLocaleTimeString('id-ID', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                
+                document.getElementById('currentDate').textContent = dateString;
+                document.getElementById('currentTime').textContent = timeString;
+            }
+            
+            // Update immediately and then every second
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
     </script>
 
 </body>
