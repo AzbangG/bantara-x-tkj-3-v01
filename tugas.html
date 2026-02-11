@@ -229,14 +229,22 @@
 
     <!-- Top Navigation Bar -->
     <nav class="top-nav">
-        <button id="theme-toggle" class="theme-toggle">
-            <div class="toggle-track">
-                <div class="toggle-thumb">
-                    <span class="icon sun">☀️</span>
-                    <span class="icon moon">🌙</span>
-                </div>
+        <div class="nav-left">
+            <div class="date-time-display" id="dateTimeDisplay">
+                <div class="current-date" id="currentDate">Loading...</div>
+                <div class="current-time" id="currentTime">Loading...</div>
             </div>
-        </button>
+        </div>
+        <div class="nav-right">
+            <button id="theme-toggle" class="theme-toggle">
+                <div class="toggle-track">
+                    <div class="toggle-thumb">
+                        <span class="icon sun">☀️</span>
+                        <span class="icon moon">🌙</span>
+                    </div>
+                </div>
+            </button>
+        </div>
     </nav>
 
     <div class="tugas-header">
@@ -403,6 +411,30 @@
 
             // Render tasks
             renderTasks();
+
+            // ===== DATE TIME UPDATE =====
+            function updateDateTime() {
+                const now = new Date();
+                const options = { 
+                    weekday: 'long', 
+                    year: 'numeric', 
+                    month: 'long', 
+                    day: 'numeric' 
+                };
+                const dateString = now.toLocaleDateString('id-ID', options);
+                const timeString = now.toLocaleTimeString('id-ID', { 
+                    hour: '2-digit', 
+                    minute: '2-digit',
+                    second: '2-digit'
+                });
+                
+                document.getElementById('currentDate').textContent = dateString;
+                document.getElementById('currentTime').textContent = timeString;
+            }
+            
+            // Update immediately and then every second
+            updateDateTime();
+            setInterval(updateDateTime, 1000);
         });
     </script>
 
