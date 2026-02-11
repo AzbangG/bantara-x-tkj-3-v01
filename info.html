@@ -181,7 +181,11 @@
         }
 
         .social-icon {
-            font-size: 1.5em;
+            width: 28px;
+            height: 28px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+            flex-shrink: 0;
         }
 
         .info-description {
@@ -263,6 +267,11 @@
                 padding: 14px 18px;
                 font-size: 0.95em;
             }
+
+            .social-icon {
+                width: 24px;
+                height: 24px;
+            }
         }
 
         @media (max-width: 375px) {
@@ -286,7 +295,8 @@
             }
 
             .social-icon {
-                font-size: 1.3em;
+                width: 22px;
+                height: 22px;
             }
         }
     </style>
@@ -404,11 +414,11 @@
             </p>
             <div class="social-links">
                 <a href="https://www.instagram.com/account_x_tkj_3" target="_blank" class="social-btn instagram-btn">
-                    <span class="social-icon">📷</span>
+                    <img src="Images/Icon/Instagram.png" alt="Instagram" class="social-icon">
                     <span>Instagram X-TKJ-3 Bantara</span>
                 </a>
                 <a href="https://www.instagram.com/smk.bantara" target="_blank" class="social-btn instagram-btn">
-                    <span class="social-icon">📷</span>
+                    <img src="Images/Icon/Instagram.png" alt="Instagram" class="social-icon">
                     <span>Instagram SMK Bantara</span>
                 </a>
             </div>
