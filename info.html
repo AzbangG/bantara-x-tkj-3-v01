@@ -254,9 +254,18 @@
         }
 
         .game-icon {
-            font-size: 3.5em;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             text-align: center;
             filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+
+        .game-icon img {
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
         }
 
         .game-info {
@@ -377,7 +386,12 @@
             }
 
             .game-icon {
-                font-size: 3em;
+                height: 80px;
+            }
+
+            .game-icon img {
+                width: 80px;
+                height: 80px;
             }
 
             .game-title {
@@ -415,7 +429,12 @@
             }
 
             .game-icon {
-                font-size: 2.5em;
+                height: 70px;
+            }
+
+            .game-icon img {
+                width: 70px;
+                height: 70px;
             }
         }
     </style>
@@ -564,7 +583,9 @@
             </p>
             <div class="games-grid">
                 <a href="Games/spin-wheel.html" class="game-card">
-                    <div class="game-icon">🎡</div>
+                    <div class="game-icon">
+                        <img src="Images/Icon/Spin Wheel.png" alt="Spin Wheel" style="width: 100px; height: 100px; object-fit: contain;">
+                    </div>
                     <div class="game-info">
                         <h3 class="game-title">Spin Wheel</h3>
                         <p class="game-description">Roda keberuntungan! Tambahkan pilihan dan putar untuk mendapatkan hasil acak.</p>
@@ -573,7 +594,9 @@
                 </a>
 
                 <a href="Games/memory-game.html" class="game-card">
-                    <div class="game-icon">🧠</div>
+                    <div class="game-icon">
+                        <img src="Images/Icon/Memory Card.png" alt="Memory Card" style="width: 100px; height: 100px; object-fit: contain;">
+                    </div>
                     <div class="game-info">
                         <h3 class="game-title">Memory Card</h3>
                         <p class="game-description">Tes ingatanmu! Cocokkan kartu yang sama dengan 3 level kesulitan.</p>
